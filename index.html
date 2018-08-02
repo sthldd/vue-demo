@@ -12,7 +12,10 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        *::after{
+            box-sizing: border-box;
+        }
+        *::before{ box-sizing: border-box; }
         html {
             --button-height: 32px;
             --font-size: 14px;
@@ -22,7 +25,7 @@
             --color: #333;
             --border-color: #999;
             --border-color-hover: #666;
-            
+
         }
 
         #app {
