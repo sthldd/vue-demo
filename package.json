@@ -1,8 +1,8 @@
 {
-  "name": "vue-demo",
-  "version": "1.0.0",
+  "name": "mlx-vue-demo",
+  "version": "0.0.3",
   "description": "1  # 一些vue的demo 2  作者：身体坏了丶丶",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
