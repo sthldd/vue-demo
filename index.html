@@ -38,13 +38,14 @@
 </head>
 <body>
 <div id="app">
+
+    <div class="box">
+        <g-input value="头" error="不得少于两个字"></g-input>
+    </div>
     <div class="box">
         <g-input value="百度" disabled></g-input>
         <g-input value="腾讯" readonly></g-input>
         <g-input value="阿里"></g-input>
-    </div>
-    <div class="box">
-        <g-input value="头" error="不得少于两个字"></g-input>
     </div>
     <div class="box">
         <g-input @change="inputChange"></g-input>
