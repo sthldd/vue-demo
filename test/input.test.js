@@ -68,40 +68,11 @@ describe('Input', () => {
         vm.$on(eventName, callback);
         //触发change事件
         let event = new Event(eventName);
+        Object.defineProperty(event,'target',{value:{value:'hi'},enumerable:true})
         let inputElement = vm.$el.querySelector('input');
         inputElement.dispatchEvent(event);
-        expect(callback).to.have.been.calledWith(event);
+        expect(callback).to.have.been.calledWith('hi');
       });
     });
-    // it('支持input事件', () => {
-    //   vm = new Constructor({}).$mount();
-    //   const callback = sinon.fake();
-    //   vm.$on('input', callback);
-    //   //触发input事件
-    //   let event = new Event('input');
-    //   let inputElement = vm.$el.querySelector('input');
-    //   inputElement.dispatchEvent(event);
-    //   expect(callback).to.have.been.calledWith(event);
-    // });
-    // it('支持focus事件', () => {
-    //   vm = new Constructor({}).$mount();
-    //   const callback = sinon.fake();
-    //   vm.$on('focus', callback);
-    //   //触发focus事件
-    //   let event = new Event('focus');
-    //   let inputElement = vm.$el.querySelector('input');
-    //   inputElement.dispatchEvent(event);
-    //   expect(callback).to.have.been.calledWith(event);
-    // });
-    // it('支持blur事件', () => {
-    //   vm = new Constructor({}).$mount();
-    //   const callback = sinon.fake();
-    //   vm.$on('blur', callback);
-    //   //触发blur事件
-    //   let event = new Event('blur');
-    //   let inputElement = vm.$el.querySelector('input');
-    //   inputElement.dispatchEvent(event);
-    //   expect(callback).to.have.been.calledWith(event);
-    // });
   });
 });
