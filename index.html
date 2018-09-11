@@ -39,6 +39,18 @@
 </head>
 <body>
 <div id="app">
+  <g-tabs :selected.sync="selectedTab">
+    <g-tabs-head>
+      <g-tabs-item name="woman">美女</g-tabs-item>
+      <g-tabs-item name="money">财经</g-tabs-item>
+      <g-tabs-item name="sports">世界杯</g-tabs-item>
+    </g-tabs-head>
+    <g-tabs-body>
+      <g-tabs-panel name="woman">美女相关的信息</g-tabs-panel>
+      <g-tabs-panel name="money">财经相关的信息</g-tabs-panel>
+      <g-tabs-panel name="sports">世界杯相关的信息</g-tabs-panel>
+    </g-tabs-body>
+  </g-tabs>
     <div style="border:1px solid black;">
         <g-row>
             <g-col :span="23" :offset="1" :narrow-pc="{span:12,offset:12}"></g-col>

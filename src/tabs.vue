@@ -5,7 +5,13 @@
 </template>
 <script>
 export default {
-  name:'GuluTabs'
+  name:'GuluTabs',
+  props:{
+    selected:{
+      type:String,
+      required:true
+    }
+  }
 }
 </script>
 

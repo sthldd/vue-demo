@@ -29,11 +29,15 @@ new Vue({
     loading1: false,
     loading2: true,
     loading3: false,
-    message: 'hi'
+    message: 'hi',
+    selectedTab:'sports'
   },
   methods: {
     inputChange(e) {
       console.log(e.target.value);
+    },
+    xxx(e){
+      console.log(e.target)
     }
   }
 });
