@@ -10,8 +10,18 @@ export default {
     selected:{
       type:String,
       required:true
+    },
+    direction:{
+      type:String,
+      default:'Horizontal',
+      vaildator(value){
+        return ['Horizontal','Vertical'].indexOf(value) >= 0
+      }
     }
-  }
+  },
+  created() {
+    // this.$emit('update:selected','xxx')
+  },
 }
 </script>
 

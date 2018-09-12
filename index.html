@@ -39,10 +39,14 @@
 </head>
 <body>
 <div id="app">
+
+    <!-- <g-tabs :selected="selectedTab" @update:selected="selectedTab = $event"><g-tabs></g-tabs> -->
   <g-tabs :selected.sync="selectedTab">
     <g-tabs-head>
-      <g-tabs-item name="woman">美女</g-tabs-item>
-      <g-tabs-item name="money">财经</g-tabs-item>
+      <g-tabs-item name="woman">
+          <g-icon name="setting"></g-icon>美女
+        </g-tabs-item>
+      <g-tabs-item name="money" disabled>财经</g-tabs-item>
       <g-tabs-item name="sports">世界杯</g-tabs-item>
     </g-tabs-head>
     <g-tabs-body>
