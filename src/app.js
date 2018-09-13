@@ -33,6 +33,9 @@ new Vue({
     selectedTab:'sports'
   },
   methods: {
+    yyy(){
+      console.log(yyy);
+    },
     inputChange(e) {
       console.log(e.target.value);
     },

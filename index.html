@@ -41,7 +41,7 @@
 <div id="app">
 
     <!-- <g-tabs :selected="selectedTab" @update:selected="selectedTab = $event"><g-tabs></g-tabs> -->
-  <g-tabs :selected.sync="selectedTab">
+  <g-tabs :selected.sync="selectedTab" @update:selected="yyy">
     <g-tabs-head>
         <template slot="actions">
             <button>可是</button>
