@@ -1,6 +1,6 @@
 <template>
-  <div class="popover" @click="xxx">
-    <div class="content-wrapper"  v-if="visible">
+  <div class="popover" @click.stop="onClick"> <!-- 禁止冒泡到document，否则会隐藏两次 -->
+    <div class="content-wrapper"  v-if="visible" @click.stop>
       <slot name="content"></slot>
     </div>
     <slot></slot>
@@ -13,8 +13,17 @@ export default {
     return {visible:false}
   },
   methods:{
-    xxx(){
+    onClick(){
       this.visible = !this.visible
+      if(this.visible === true){
+        this.$nextTick(() => {
+          let eventHandler = ()=>{
+            this.visible = false
+            document.removeEventListener('click',eventHandler)
+          }
+          document.addEventListener('click',eventHandler)
+        })
+      }
     }
   }
 }
@@ -24,6 +33,7 @@ export default {
     display: inline-block;
     vertical-align: top;
     position: relative;
+    border:1px solid green;
     >.content-wrapper{
       position: absolute;
       bottom: 100%;
