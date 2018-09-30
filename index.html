@@ -50,8 +50,10 @@
         </template>
     </g-popover>
     <g-popover>
-        <template slot="content">
-            <div> popover内容</div>
+        <template slot="content" slot-scope="{close}">
+            <div> popover内容
+                <g-button @click="close">关闭</g-button>
+            </div>
         </template>
         <template>
             <g-button>点击</g-button>

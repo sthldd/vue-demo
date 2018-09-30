@@ -2,7 +2,7 @@
   <div class="popover"  ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible"
       :class="{[`position-${position}`]:true}">
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <span ref="trigger" style="display:inline-block">
        <slot></slot>
@@ -151,10 +151,12 @@ export default {
         left:10px;
       }
       &::after{
+        border-bottom: none;
         top:calc(100% - 1px);
         border-top-color: white;
       }
       &::before{
+        border-bottom: none;
         top:100%;
         border-top-color: black;
       }
@@ -165,10 +167,12 @@ export default {
         left:10px;
       }
       &::before{
+        border-top: none;
         bottom:100%;
         border-bottom-color: black;
       }
       &::after{
+        border-top: none;
         bottom:calc(100% - 1px);
         border-bottom-color: white;
       }
@@ -181,10 +185,12 @@ export default {
         transform: translateY(-50%);
       }
       &::before{
+        border-right: none;
         left:100%;
         border-left-color: black;
       }
       &::after{
+        border-right: none;
         left:calc(100% - 1px);
         border-left-color: white;
       }
@@ -196,10 +202,12 @@ export default {
         transform: translateY(-50%);
       }
       &::before{
+        border-left: none;
         right:100%;
         border-right-color: black;
       }
       &::after{
+        border-left: none;
         right:calc(100% - 1px);
         border-right-color: white;
       }
