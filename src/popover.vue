@@ -28,25 +28,32 @@ export default {
   },
   methods:{
     positionContent () {
-      console.log(this.position)
-        document.body.appendChild(this.$refs.contentWrapper)
-        let {width, height, top, left} = this.$refs.trigger.getBoundingClientRect()
-        if(this.position === 'top'){
-          this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-          this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
-        }else if(this.position === 'bottom'){
-          this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-          this.$refs.contentWrapper.style.top = top + height + window.scrollY + 'px'
-        }else if(this.position === 'left'){
-          this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-          let {height:height2} = this.$refs.contentWrapper.getBoundingClientRect()
-          this.$refs.contentWrapper.style.top = top +  window.scrollY +(height - height2) / 2 + 'px'
-        }else if(this.position === 'right'){
-          this.$refs.contentWrapper.style.left = left + window.scrollX + width + 'px'
-          let {height:height2} = this.$refs.contentWrapper.getBoundingClientRect()
-          this.$refs.contentWrapper.style.top = top +  window.scrollY +(height - height2) / 2 + 'px'
+      const {contentWrapper,trigger} = this.$refs
+      document.body.appendChild(contentWrapper)
+      const {width, height, top, left} = trigger.getBoundingClientRect()
+      const {height:height2} = contentWrapper.getBoundingClientRect()
+      let positions ={
+        top:{
+          top:top + window.scrollY,
+          left:left + window.scrollX,
+        },
+        bottom:{
+          top:top + window.scrollY,
+          left:left + window.scrollX,
+        },
+        left:{
+          top:top +  window.scrollY +(height - height2) / 2,
+          left:left + window.scrollX,
+        },
+        right:{
+          top:top +  window.scrollY +(height - height2) / 2,
+          left:top +  window.scrollY +(height - height2) / 2,
         }
-      },
+      }
+      contentWrapper.style.left = positions[this.position].left + 'px'
+      contentWrapper.style.top = positions[this.position].top + 'px'
+
+    },
     onClickDocument (e) {
       if (this.$refs.popover &&(this.$refs.popover === e.target || this.$refs.popover.contains(e.target))){ return }
       if (this.$refs.contentWrapper &&(this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))){ return }
