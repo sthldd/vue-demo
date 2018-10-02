@@ -41,6 +41,9 @@ new Vue({
     yyy(){
       console.log(yyy);
     },
+    ccc(){
+      console.log('点击我了')
+    },
     inputChange(e) {
       console.log(e.target.value);
     },
