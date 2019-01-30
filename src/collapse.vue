@@ -16,15 +16,18 @@ export default {
     single:{
       type:Boolean,
       default:false
+    },
+    selected:{
+      type:String
     }
   },
   provide(){
-    if(this.single){ //如果需要多选，就不返回eventbus
-      return {
-        eventBus:this.eventBus
-      }
+    return {
+      eventBus:this.eventBus
     }
-
+  },
+  mounted(){
+    this.eventBus.$emit('updata:selected',this.selected)
   }
 }
 </script>
